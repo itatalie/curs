@@ -1,0 +1,8 @@
+pandas
+requests
+python-dotenv
+openpyxl
+json
+datetime
+logging
+pytest
