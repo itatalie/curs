@@ -10,7 +10,9 @@ from src.utils import (
     load_excel_data,
 )
 
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
+)
 
 
 def home_page(date_str):
@@ -24,7 +26,9 @@ def home_page(date_str):
             return create_error_response("Не удалось загрузить данные из Excel.")
 
         filtered_transactions = filter_data_by_date_range(
-            transactions_df, month_start_date.strftime("%Y-%m-%d"), parsed_date.strftime("%Y-%m-%d")
+            transactions_df,
+            month_start_date.strftime("%Y-%m-%d"),
+            parsed_date.strftime("%Y-%m-%d"),
         )
 
         currency_info = get_currency_data(month_start_date, parsed_date)

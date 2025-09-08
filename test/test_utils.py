@@ -16,7 +16,13 @@ from src.utils import (
 
 @pytest.fixture
 def sample_df():
-    return pd.DataFrame({"Date": ["2023-01-01", "2023-01-15"], "Category": ["Еда", "Такси"], "Amount": [-100, -200]})
+    return pd.DataFrame(
+        {
+            "Date": ["2023-01-01", "2023-01-15"],
+            "Category": ["Еда", "Такси"],
+            "Amount": [-100, -200],
+        }
+    )
 
 
 def test_load_excel_data(sample_df):
@@ -62,7 +68,11 @@ def test_filter_data_by_date_range(sample_df):
 
 def test_get_currency_data():
     """тест для данных о курсах валют"""
-    mock_response = {"start_date": "2023-01-01", "end_date": "2023-01-31", "rates": {"USD": {"2023-01-01": 75.0}}}
+    mock_response = {
+        "start_date": "2023-01-01",
+        "end_date": "2023-01-31",
+        "rates": {"USD": {"2023-01-01": 75.0}},
+    }
 
     start_date = convert_date_string("2023-01-01 00:00:00")
     end_date = convert_date_string("2023-01-31 00:00:00")

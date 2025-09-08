@@ -20,11 +20,15 @@ def test_simple_search_with_valid_data(example_data):
 
     assert len(result) == 2
     assert any(
-        item["Категория"] == "Магазин 1" and item["Описание"] == "Покупка продуктов" and item["Сумма"] == 1000
+        item["Категория"] == "Магазин 1"
+        and item["Описание"] == "Покупка продуктов"
+        and item["Сумма"] == 1000
         for item in result
     )
     assert any(
-        item["Категория"] == "Магазин 2" and item["Описание"] == "Оплата услуг" and item["Сумма"] == 500
+        item["Категория"] == "Магазин 2"
+        and item["Описание"] == "Оплата услуг"
+        and item["Сумма"] == 500
         for item in result
     )
 

@@ -8,11 +8,18 @@ from src.views import home_page
 
 def test_home_page_success():
     """тест для правильного формирования ответа"""
-    test_data = {"Дата": ["2023-01-01"], "Номер карты": ["1234"], "Сумма операции": [-100], "Категория": ["Еда"]}
+    test_data = {
+        "Дата": ["2023-01-01"],
+        "Номер карты": ["1234"],
+        "Сумма операции": [-100],
+        "Категория": ["Еда"],
+    }
 
     with (
         patch("src.views.load_excel_data", return_value=pd.DataFrame(test_data)),
-        patch("src.views.filter_data_by_date_range", return_value=pd.DataFrame(test_data)),
+        patch(
+            "src.views.filter_data_by_date_range", return_value=pd.DataFrame(test_data)
+        ),
         patch("src.views.get_currency_data", return_value={"USD": 75.0}),
         patch("src.views.get_stock_data", return_value={"AAPL": 150.0}),
     ):
@@ -40,7 +47,12 @@ def test_home_page_empty_excel():
 def test_home_page_api_error():
     """тест ошибки API"""
     test_df = pd.DataFrame(
-        {"Дата": ["2023-01-01"], "Номер карты": ["1234"], "Сумма операции": [-100], "Категория": ["Еда"]}
+        {
+            "Дата": ["2023-01-01"],
+            "Номер карты": ["1234"],
+            "Сумма операции": [-100],
+            "Категория": ["Еда"],
+        }
     )
 
     with (
