@@ -32,5 +32,8 @@ def spending_by_category(transactions, category, date=None):
 
     except Exception as e:
         logging.error(f"Ошибка при формировании отчета: {e}")
-        return json.dumps({"error": "Произошла ошибка при формировании отчета"}, ensure_ascii=False, indent=4)
-
+        return json.dumps(
+            {"error": "Произошла ошибка при формировании отчета"},
+            ensure_ascii=False,
+            indent=4,
+        )
